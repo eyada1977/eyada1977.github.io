@@ -1,389 +1,190 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المحتوى المرئي والصوتي للكتاب</title>
+<meta charset="UTF-8">
+<title>المحتوى المرئي والصوتي للكتاب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            font-family: "Cairo", sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #059669, #a7f3d0); /* أخضر أغمق + متدرّج */
-        }
+<style>
 
-        .page {
-            max-width: 950px;
-            margin: 30px auto 40px;
-            padding: 0 16px;
-        }
+body {
+    font-family: "Cairo", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#86e6c1, #dffdf2);
+}
 
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-            padding: 24px 22px 26px;
-            text-align: center;
-        }
+/* الصندوق الأبيض الأوسط */
+.container {
+    width: 85%;
+    max-width: 850px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.10);
+    text-align: center;
+}
 
-        .cover-wrapper {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+/* صورة غلاف الكتاب */
+.cover-img {
+    width: 100%;
+    max-width: 290px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
 
-        .cover-card {
-            width: 270px;
-            margin: 0 auto 15px;
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 16px;
-            box-shadow: 0 6px 22px rgba(0,0,0,0.18);
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
+/* عنوان رئيس */
+h1 {
+    margin-top: 0;
+    font-size: 26px;
+    color: #333;
+}
 
-        .cover-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-        }
+/* زر تحميل PDF */
+.download-box {
+    margin: 25px 0;
+    padding: 12px;
+    background: #f2f8ff;
+    border-radius: 10px;
+    display: inline-block;
+    width: 80%;
+}
 
-        .cover-img {
-            width: 100%;
-            border-radius: 12px;
-        }
+.section-title {
+    background: #f6f6f6;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
 
-        h1 {
-            font-size: 24px;
-            margin: 8px 0 6px;
-            font-weight: 800;
-            color: #111827;
-        }
+/* شكل زر ⏳ قريبًا */
+.soon {
+    background: #ffb3b3;
+    color: #7d0000;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-left: 6px;
+}
 
-        .subtitle {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 18px;
-        }
+/* Accordion */
+.accordion {
+    margin-top: 25px;
+    text-align: right;
+}
 
-        /* زر تحميل PDF */
-        .pdf-box {
-            background: #f9fafb;
-            border-radius: 14px;
-            padding: 14px 16px 16px;
-            border: 1px solid #e5e7eb;
-            margin-bottom: 18px;
-            text-align: right;
-        }
+.accordion-item {
+    background: #eafff5;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
 
-        .pdf-title {
-            font-weight: 700;
-            font-size: 17px;
-            margin-bottom: 8px;
-        }
+/* خلفية مختلفة للصوتيات */
+.audio-section .accordion-item {
+    background: #fff3db;
+}
 
-        .btn-pdf {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            border: none;
-            background: #facc15;
-            color: #92400e;
-            font-size: 14px;
-            cursor: default; /* إلى أن تضع رابط حقيقي */
-        }
+/* العنوان داخل الأكورديون */
+.lesson-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    padding: 8px 5px;
+}
 
-        .btn-pdf span {
-            font-size: 18px;
-        }
-
-        /* Accordion عام */
-        .accordion {
-            margin-top: 16px;
-            text-align: right;
-        }
-
-        .accordion summary {
-            list-style: none;
-            cursor: pointer;
-            background: #111827;
-            color: #f9fafb;
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-size: 17px;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .accordion summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .accordion-icon {
-            font-size: 18px;
-        }
-
-        .accordion[open] summary {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
-        .accordion-content {
-            padding: 12px 14px 18px;
-            border-radius: 0 0 12px 12px;
-            border: 1px solid #e5e7eb;
-            border-top: none;
-        }
-
-        /* خلفية مختلفة للفيديوهات والصوتيات */
-        .accordion-content.videos {
-            background: #f9fafb;      /* رمادي فاتح */
-        }
-
-        .accordion-content.audio {
-            background: #e0f2fe;      /* أزرق سماوي فاتح */
-        }
-
-        .lessons {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .lesson-item {
-            font-size: 15px;
-            padding: 5px 0 6px;
-            border-bottom: 1px dashed #d1d5db;
-            display: flex;
-            justify-content: space-between;
-            gap: 8px;
-            align-items: baseline;
-        }
-
-        .lesson-item:last-child {
-            border-bottom: none;
-        }
-
-        .lesson-text {
-            flex: 1;
-        }
-
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .status-badge {
-            font-size: 11px;
-            white-space: nowrap;
-            padding: 2px 7px;
-            border-radius: 999px;
-            background: #fee2e2;
-            color: #b91c1c;
-            border: 1px solid #fecaca;
-        }
-
-        .play-btn {
-            font-size: 11px;
-            padding: 3px 9px;
-            border-radius: 999px;
-            border: 1px solid #0f766e;
-            background: #ccfbf1;
-            color: #0f766e;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .play-btn.disabled {
-            border-color: #9ca3af;
-            background: #e5e7eb;
-            color: #6b7280;
-            cursor: default;
-            pointer-events: none; /* لا يمكن الضغط حتى تضع رابط حقيقي */
-        }
-
-        .rights {
-            margin-top: 22px;
-            text-align: center;
-            font-size: 13px;
-            color: #4b5563;
-            padding-top: 10px;
-            border-top: 1px dashed #e5e7eb;
-        }
-
-        @media (max-width: 700px) {
-            .card {
-                padding: 20px 14px 22px;
-            }
-            h1 {
-                font-size: 20px;
-            }
-            .lesson-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
-<div class="page">
-    <div class="card">
+<div class="container">
 
-        <!-- غلاف الكتاب -->
-        <div class="cover-wrapper">
-            <div class="cover-card">
-                <!-- تأكّد أن اسم الملف في المستودع هو cover.jpg -->
-                <img src="cover.jpg" alt="غلاف الكتاب" class="cover-img">
-            </div>
-            <h1>المحتوى المرئي والصوتي للكتاب</h1>
-            <div class="subtitle">
-                هذه الصفحة مخصّصة للمواد المرئية والصوتية المصاحبة للكتاب. سيتم تفعيل الروابط النهائية لاحقًا بإذن الله.
-            </div>
-        </div>
+    <!-- غلاف الكتاب -->
+    <img src="cover.jpg" alt="غلاف الكتاب" class="cover-img">
 
-        <!-- تحميل الكتاب PDF -->
-        <div class="pdf-box">
-            <div class="pdf-title">📘 تحميل الكتاب (PDF)</div>
-            <!-- حين يتوفر رابط PDF، ضع الرابط في خاصية href داخل الوسم <a> بدلاً من # وأزل خاصية cursor: default من CSS إن أحببت -->
-            <button class="btn-pdf" type="button" title="سيتم إضافة رابط التحميل لاحقًا">
-                <span>⏳</span>
-                تحميل نسخة الكتاب كاملة بصيغة PDF (قريبًا)
-            </button>
-        </div>
+    <h1>المحتوى المرئي والصوتي للكتاب</h1>
+    <p>هذه الصفحة مخصّصة لمواد كتاب دليل أحكام التجويد، وسيتم تفعيل الروابط عند توفرها بإذن الله.</p>
 
-        <!-- فيديوهات الكتاب (Accordion) -->
-        <details class="accordion" open>
-            <summary>
-                <span>🎥 فيديوهات الكتاب</span>
-                <span class="accordion-icon">▼</span>
-            </summary>
-            <div class="accordion-content videos">
-                <div id="videos-list"></div>
-            </div>
-        </details>
+    <!-- تحميل PDF -->
+    <div class="download-box">
+        <strong>تحميل الكتاب (PDF)</strong><br>
+        <span class="soon">⏳ قريبًا</span>
+    </div>
 
-        <!-- صوتيات الكتاب (Accordion) -->
-        <details class="accordion">
-            <summary>
-                <span>🎧 صوتيات الكتاب</span>
-                <span class="accordion-icon">▼</span>
-            </summary>
-            <div class="accordion-content audio">
-                <div id="audio-list"></div>
-            </div>
-        </details>
+    <!-- فيديوهات الكتاب -->
+    <div class="section-title">🎬 فيديوهات الكتاب</div>
 
-        <!-- حقوق التأليف -->
-        <div class="rights">
-            حقوق التأليف: يُسمح بالنسخ والمشاركة والنشر دون قيود.
-        </div>
+    <div class="accordion video-section">
+
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (1): المقدمة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (2): القرآن الكريم وعلم التجويد</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (3): الاستعاذة والبسملة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (4): أحكام النون الساكنة والتنوين</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (5): أحكام الميم الساكنة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (6): الغنة وحروفها</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (7): المدود</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (8): مخارج الحروف</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (9): صفات الحروف</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (10): ال التعريف الشمسية والقمريّة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (11): اللامات السواكن</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (12): إدغام المتماثلين والمتجانسين والمتقاربين</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (13): الحروف المقطعة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (14): الألفات السبعة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (15): التفخيم والترقيق</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (16): الوقف والابتداء</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (17): السكت</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (18): الروم والإشمام</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (19): التقاء الساكنين</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (20): ملاحظات حول قراءة حفص</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (21): القراء العشرة ورواتهم</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (22): الهمزة الأولية (الوصل والقطع)</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (23): الرسم العثماني للمصحف الشريف</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (24): فوائد تجويدية</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (25): لطائف قرآنية</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> مشاهدة الدرس (26): ثمرات متصلة</div></div>
 
     </div>
+
+    <!-- الصوتيات -->
+    <div class="section-title">🎧 التسجيلات الصوتية</div>
+
+    <div class="accordion audio-section">
+
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (1): المقدمة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (2): القرآن الكريم وعلم التجويد</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (3): الاستعاذة والبسملة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (4): أحكام النون الساكنة والتنوين</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (5): أحكام الميم الساكنة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (6): الغنة وحروفها</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (7): المدود</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (8): مخارج الحروف</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (9): صفات الحروف</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (10): ال التعريف الشمسية والقمريّة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (11): اللامات السواكن</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (12): إدغام المتماثلين والمتجانسين والمتقاربين</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (13): الحروف المقطعة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (14): الألفات السبعة</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (15): التفخيم والترقيق</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (16): الوقف والابتداء</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (17): السكت</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (18): الروم والإشمام</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (19): التقاء الساكنين</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (20): ملاحظات حول قراءة حفص</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (21): القراء العشرة ورواتهم</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (22): الهمزة الأولية (الوصل والقطع)</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (23): الرسم العثماني للمصحف الشريف</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (24): فوائد تجويدية</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (25): لطائف قرآنية</div></div>
+        <div class="accordion-item"><div class="lesson-title"><span class="soon">⏳ قريبًا</span> استماع الدرس (26): ثمرات متصلة</div></div>
+
+    </div>
+
 </div>
-
-<!-- سكربت بسيط لتوليد قائمة الدروس للفيديو والصوت -->
-<script>
-    // الفهرس الكامل
-    const lessons = [
-        "المقدّمة",
-        "القرآنُ الكريمُ وعِلمُ التَّجويدِ",
-        "الاستِعاذةُ والبسْملةُ",
-        "أحكامُ النُّونِ السَّاكنةِ والتَّنوينِ",
-        "أحكامُ الميمِ السَّاكنةِ",
-        "الغُنَّةُ وحُرُوفُها",
-        "المُدود",
-        "مَخارِجُ الحُرُوفِ",
-        "صِفاتُ الحُرُوفِ",
-        "الـ التَّعريفِ الشَّمسيَّةُ والقمريَّةُ",
-        "اللَّاماتُ السَّواكنُ",
-        "إدغامُ المُتماثِلَينِ والمُتجانسَينِ والمُتقاربَينِ",
-        "الحُرُوفُ المُقطَّعةِ",
-        "الألِفاتُ السَّبعةُ",
-        "التَّفخيمُ والتَّرقيق",
-        "الوَقْفُ والابتداءُ",
-        "السَّكْتُ",
-        "الرَّومُ والإشمامُ",
-        "التقاءُ السَّاكنَينِ",
-        "مُلاحظاتٌ حولَ قراءةِ حَفْصٍ",
-        "القُرَّاءُ العشرةُ ورواتُهم",
-        "الهمزةُ الأوَّليَّةُ (الوَصْلُ، والقَطْعُ)",
-        "الرَّسمُ العُثمانيُّ للمُصحَفِ الشَّريفِ",
-        "فَوائدُ تجويديَّةٌ",
-        "لَطائفُ قُرآنيَّةٌ",
-        "ثَمَراتٌ مُتَّصِلةٌ"
-    ];
-
-    // وظيفة توليد HTML لقائمة معيّنة
-    function renderLessons() {
-        const videosContainer = document.getElementById("videos-list");
-        const audioContainer  = document.getElementById("audio-list");
-
-        let videosHTML = '<ul class="lessons">';
-        let audioHTML  = '<ul class="lessons">';
-
-        // أول عنصر: ملف كامل مجمّع
-        videosHTML += `
-            <li class="lesson-item">
-                <span class="lesson-text">مشاهدة ملف فيديو واحد يجمع جميع دروس الكتاب</span>
-                <span class="actions">
-                    <span class="status-badge">⏳ قريبًا</span>
-                    <a href="#" class="play-btn disabled" title="سيتم تفعيل رابط التشغيل لاحقًا">تشغيل</a>
-                </span>
-            </li>
-        `;
-
-        audioHTML += `
-            <li class="lesson-item">
-                <span class="lesson-text">استماع ملف صوتي واحد يجمع جميع دروس الكتاب</span>
-                <span class="actions">
-                    <span class="status-badge">⏳ قريبًا</span>
-                    <a href="#" class="play-btn disabled" title="سيتم تفعيل رابط التشغيل لاحقًا">تشغيل</a>
-                </span>
-            </li>
-        `;
-
-        // باقي الدروس حسب الفهرس
-        lessons.forEach((title, index) => {
-            const num = index + 1;
-
-            videosHTML += `
-                <li class="lesson-item">
-                    <span class="lesson-text">مشاهدة الدرس (${num}): ${title}</span>
-                    <span class="actions">
-                        <span class="status-badge">⏳ قريبًا</span>
-                        <!-- عندما يتوفر رابط الفيديو، استبدل # بالرابط واحذف class="disabled" -->
-                        <a href="#" class="play-btn disabled" title="سيتم تفعيل رابط التشغيل لاحقًا">تشغيل</a>
-                    </span>
-                </li>
-            `;
-
-            audioHTML += `
-                <li class="lesson-item">
-                    <span class="lesson-text">استماع الدرس (${num}): ${title}</span>
-                    <span class="actions">
-                        <span class="status-badge">⏳ قريبًا</span>
-                        <!-- عندما يتوفر رابط الصوت، استبدل # بالرابط واحذف class="disabled" -->
-                        <a href="#" class="play-btn disabled" title="سيتم تفعيل رابط التشغيل لاحقًا">تشغيل</a>
-                    </span>
-                </li>
-            `;
-        });
-
-        videosHTML += '</ul>';
-        audioHTML  += '</ul>';
-
-        videosContainer.innerHTML = videosHTML;
-        audioContainer.innerHTML  = audioHTML;
-    }
-
-    renderLessons();
-</script>
 
 </body>
 </html>

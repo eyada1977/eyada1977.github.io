@@ -10,7 +10,7 @@
         font-family: "Cairo", sans-serif;
         margin: 0;
         padding: 0;
-        background: linear-gradient(to bottom, #a7f3d0, #ffffff);
+        background: linear-gradient(to bottom, #a7f3d0, #ffffff); /* أخضر متوسط → أبيض */
     }
 
     .page {
@@ -129,16 +129,6 @@
         border: 1px solid #fecaca;
     }
 
-    .download-note {
-        font-size: 13px;
-        color: #92400e;
-        background: #fef3c7;
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 999px;
-        margin-top: 6px;
-    }
-
     .rights {
         margin-top: 22px;
         text-align: center;
@@ -168,7 +158,7 @@
 <div class="page">
     <div class="card">
 
-        <!-- غلاف الكتاب -->
+        <!-- غلاف الكتاب (تأكد أن اسم الملف في المستودع هو glav.jpg أو غيّر الاسم هنا ليتطابق مع الملف الجديد) -->
         <div class="cover-wrapper">
             <div class="cover-card">
                 <img src="glav.jpg" alt="غلاف الكتاب" class="cover-img">
@@ -202,27 +192,32 @@
             <ul>
                 <li><span class="lesson-text">مشاهدة ملف فيديو واحد يجمع جميع دروس الكتاب</span><span class="status-badge">⏳ قريبًا</span></li>
 
-                <li><span class="lesson-text">مشاهدة الدرس (1): القرآن الكريم وعلم التجويد</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (2): المدود</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (3): مخارج الحروف</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (4): صفات الحروف</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (5): ال التعريف الشمسية والقمريّة</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (6): اللامات السواكن</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (8): الحروف المقطّعة</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (9): الألفات السبعة</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (10): التفخيم والترقيق</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (11): الوقف والابتداء</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (12): السكت</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (13): الروم والإشمام</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (14): التقاء الساكنين</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (15): ملاحظات حول قراءة حفص</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (16): القرّاء العشرة ورواتهم</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (17): الهمزة الأولية (الوصل والقطع)</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (18): الرسم العثماني للمصحف الشريف</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (19): فوائد تجويدية</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (20): لطائف قرآنية</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">مشاهدة الدرس (21): ثمرات متّصلة</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (1): المقدّمة</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (2): القرآنُ الكريمُ وعِلمُ التَّجويدِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (3): الاستِعاذةُ والبسْملةُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (4): أحكامُ النُّونِ السَّاكنةِ والتَّنوينِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (5): أحكامُ الميمِ السَّاكنةِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (6): الغُنَّةُ وحُرُوفُها</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (7): المُدود</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (8): مَخارِجُ الحُرُوفِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (9): صِفاتُ الحُرُوفِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (10): الـ التَّعريفِ الشَّمسيَّةُ والقمريَّةُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (11): اللَّاماتُ السَّواكنُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (12): إدغامُ المُتماثِلَينِ والمُتجانسَينِ والمُتقاربَينِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (13): الحُرُوفُ المُقطَّعةِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (14): الألِفاتُ السَّبعةُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (15): التَّفخيمُ والتَّرقيق</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (16): الوَقْفُ والابتداءُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (17): السَّكْتُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (18): الرَّومُ والإشمامُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (19): التقاءُ السَّاكنَينِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (20): مُلاحظاتٌ حولَ قراءةِ حَفْصٍ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (21): القُرَّاءُ العشرةُ ورواتُهم</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (22): الهمزةُ الأوَّليَّةُ (الوَصْلُ، والقَطْعُ)</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (23): الرَّسمُ العُثمانيُّ للمُصحَفِ الشَّريفِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (24): فَوائدُ تجويديَّةٌ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (25): لَطائفُ قُرآنيَّةٌ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">مشاهدة الدرس (26): ثَمَراتٌ مُتَّصِلةٌ</span><span class="status-badge">⏳ قريبًا</span></li>
             </ul>
         </div>
 
@@ -235,27 +230,32 @@
             <ul>
                 <li><span class="lesson-text">استماع ملف صوتي واحد يجمع جميع دروس الكتاب</span><span class="status-badge">⏳ قريبًا</span></li>
 
-                <li><span class="lesson-text">استماع الدرس (1): القرآن الكريم وعلم التجويد</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (2): المدود</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (3): مخارج الحروف</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (4): صفات الحروف</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (5): ال التعريف الشمسية والقمريّة</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (6): اللامات السواكن</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (8): الحروف المقطّعة</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (9): الألفات السبعة</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (10): التفخيم والترقيق</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (11): الوقف والابتداء</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (12): السكت</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (13): الروم والإشمام</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (14): التقاء الساكنين</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (15): ملاحظات حول قراءة حفص</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (16): القرّاء العشرة ورواتهم</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (17): الهمزة الأولية (الوصل والقطع)</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (18): الرسم العثماني للمصحف الشريف</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (19): فوائد تجويدية</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (20): لطائف قرآنية</span><span class="status-badge">⏳ قريبًا</span></li>
-                <li><span class="lesson-text">استماع الدرس (21): ثمرات متّصلة</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (1): المقدّمة</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (2): القرآنُ الكريمُ وعِلمُ التَّجويدِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (3): الاستِعاذةُ والبسْملةُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (4): أحكامُ النُّونِ السَّاكنةِ والتَّنوينِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (5): أحكامُ الميمِ السَّاكنةِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (6): الغُنَّةُ وحُرُوفُها</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (7): المُدود</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (8): مَخارِجُ الحُرُوفِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (9): صِفاتُ الحُرُوفِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (10): الـ التَّعريفِ الشَّمسيَّةُ والقمريَّةُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (11): اللَّاماتُ السَّواكنُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (12): إدغامُ المُتماثِلَينِ والمُتجانسَينِ والمُتقاربَينِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (13): الحُرُوفُ المُقطَّعةِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (14): الألِفاتُ السَّبعةُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (15): التَّفخيمُ والتَّرقيق</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (16): الوَقْفُ والابتداءُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (17): السَّكْتُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (18): الرَّومُ والإشمامُ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (19): التقاءُ السَّاكنَينِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (20): مُلاحظاتٌ حولَ قراءةِ حَفْصٍ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (21): القُرَّاءُ العشرةُ ورواتُهم</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (22): الهمزةُ الأوَّليَّةُ (الوَصْلُ، والقَطْعُ)</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (23): الرَّسمُ العُثمانيُّ للمُصحَفِ الشَّريفِ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (24): فَوائدُ تجويديَّةٌ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (25): لَطائفُ قُرآنيَّةٌ</span><span class="status-badge">⏳ قريبًا</span></li>
+                <li><span class="lesson-text">استماع الدرس (26): ثَمَراتٌ مُتَّصِلةٌ</span><span class="status-badge">⏳ قريبًا</span></li>
             </ul>
         </div>
 

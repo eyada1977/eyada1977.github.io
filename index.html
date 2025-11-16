@@ -5,14 +5,14 @@
 <title>المحتوى المرئي والصوتي للكتاب</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- استدعاء خطوط فاخرة من Google Fonts -->
+<!-- استدعاء خطوط -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
     body {
-        font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: "Cairo", sans-serif;
         background: linear-gradient(to bottom, #115e2b, #e8f5e9);
         margin: 0;
         padding: 0;
@@ -30,7 +30,7 @@
     }
 
     h1 {
-        font-family: "Amiri", "Cairo", serif;
+        font-family: "Amiri", serif !important;
         font-size: 28px;
         font-weight: 700;
         color: #8c6b4c;
@@ -44,9 +44,8 @@
         margin-bottom: 18px;
     }
 
-    /* زر التحميل العام */
+    /* زر التحميل */
     .download-btn {
-        font-family: "Cairo", sans-serif;
         display: block;
         width: 90%;
         margin: 8px auto;
@@ -68,7 +67,7 @@
         box-shadow: 0 0 12px rgba(213,154,139,0.8);
     }
 
-    /* إطار ذهبي فاخر لزر PDF */
+    /* زر PDF بإطار ذهبي */
     .download-btn.pdf-main {
         background: linear-gradient(135deg, #cfa57c, #8c6b4c);
         border: 2px solid #d4af37;
@@ -80,39 +79,9 @@
         transform: scale(1.05);
     }
 
-    /* أزرار المشاركة */
-    .share-row {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 18px 0 5px;
-    }
-
-    .share-btn {
-        font-family: "Cairo", sans-serif;
-        border-radius: 10px;
-        border: none;
-        padding: 10px 15px;
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        text-decoration: none;
-        color: #fff;
-        transition: 0.2s;
-        width: 46%;
-    }
-
-    .share-btn.wa { background: #128C7E; }
-    .share-btn.wa:hover { background: #0f6c61; transform: scale(1.02); }
-
-    .share-btn.tg { background: #0088cc; }
-    .share-btn.tg:hover { background: #006fa6; transform: scale(1.02); }
-
-    /* العناوين */
     .section-title {
-        font-family: "Amiri", "Cairo", serif;
         font-size: 21px;
-        font-weight: 700;
+        font-weight: 800;
         padding: 10px 12px;
         border-radius: 10px;
         margin-top: 25px;
@@ -124,11 +93,9 @@
     .video-title { background: #0f6934cc; color: #fff; }
     .audio-title { background: #324d97cc; color: #fff; }
 
-    /* عناصر الدروس */
     .items-wrapper { text-align: right; }
 
     .item {
-        font-family: "Cairo", sans-serif;
         background: #d1fae5;
         padding: 10px 12px;
         margin: 6px 0;
@@ -140,6 +107,7 @@
         font-weight: 600;
         transition: 0.25s;
     }
+
     .item:hover {
         transform: scale(1.015);
         box-shadow: 0 0 8px rgba(0,0,0,0.18);
@@ -155,7 +123,6 @@
     }
 
     .collection-btn {
-        font-family: "Cairo", sans-serif;
         display: block;
         width: 93%;
         margin: 15px auto 8px;
@@ -177,9 +144,33 @@
     .audios-collection-btn { background: #2e4bb3cc; }
     .audios-collection-btn:hover { transform: scale(1.05); }
 
+    .share-row {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 18px 0 5px;
+    }
+
+    .share-btn {
+        border-radius: 10px;
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+        transition: 0.2s;
+        width: 46%;
+    }
+
+    .share-btn.wa { background: #128C7E; }
+    .share-btn.wa:hover { background: #0f6c61; transform: scale(1.02); }
+
+    .share-btn.tg { background: #0088cc; }
+    .share-btn.tg:hover { background: #006fa6; transform: scale(1.02); }
+
     .copyright {
-        font-family: "Amiri", "Cairo", serif;
-        margin-top: 15px;
         font-size: 17px;
         font-weight: 700;
         color: #b58a00;
@@ -188,6 +179,7 @@
         border-radius: 10px;
         border: 1px solid #e6d68a;
         text-align: center;
+        margin-top: 10px;
     }
 </style>
 </head>
@@ -269,7 +261,7 @@
 
     <a href="#" class="collection-btn audios-collection-btn">🎧 تحميل جميع الصوتيات كملف واحد ⬇️</a>
 
-    <!-- أزرار المشاركة أسفل الصفحة -->
+    <!-- مشاركة -->
     <div class="share-row">
         <button class="share-btn wa" onclick="shareWhatsApp()">📲 واتساب</button>
         <button class="share-btn tg" onclick="shareTelegram()">📨 تيلغرام</button>
@@ -282,25 +274,25 @@
 </div>
 
 <script>
-    function getShareUrl() {
-        return window.location.href;
-    }
+function getShareUrl() {
+    return window.location.href;
+}
 
-    function getShareText() {
-        return "المحتوى المرئي والصوتي لكتاب دليل أحكام التجويد:\n" + getShareUrl();
-    }
+function getShareText() {
+    return "المحتوى المرئي والصوتي لكتاب دليل أحكام التجويد:\n" + getShareUrl();
+}
 
-    function shareWhatsApp() {
-        var text = encodeURIComponent(getShareText());
-        var url  = "https://wa.me/?text=" + text;
-        window.open(url, "_blank");
-    }
+function shareWhatsApp() {
+    var text = encodeURIComponent(getShareText());
+    var url  = "https://wa.me/?text=" + text;
+    window.open(url, "_blank");
+}
 
-    function shareTelegram() {
-        var text = encodeURIComponent(getShareText());
-        var url  = "https://t.me/share/url?url=" + encodeURIComponent(getShareUrl()) + "&text=" + text;
-        window.open(url, "_blank");
-    }
+function shareTelegram() {
+    var text = encodeURIComponent(getShareText());
+    var url  = "https://t.me/share/url?url=" + encodeURIComponent(getShareUrl()) + "&text=" + text;
+    window.open(url, "_blank");
+}
 </script>
 
 </body>

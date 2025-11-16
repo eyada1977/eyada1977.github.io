@@ -38,7 +38,7 @@
         margin-bottom: 18px;
     }
 
-    /* زر التحميل العام */
+    /* 🔽 زر التحميل العام */
     .download-btn {
         display: block;
         width: 90%;
@@ -61,7 +61,7 @@
         box-shadow: 0 0 12px rgba(213,154,139,0.8);
     }
 
-    /* 🌟 إطار ذهبي فاخر لزر تحميل الكتاب PDF */
+    /* 🔽 إطار ذهبي لزر PDF */
     .download-btn.pdf-main {
         background: linear-gradient(135deg, #cfa57c, #8c6b4c);
         border: 2px solid #d4af37;
@@ -73,51 +73,32 @@
         transform: scale(1.05);
     }
 
-    /* أزرار العمليات الإضافية (طباعة + مشاركة) */
-    .actions-row {
+    /* 🔽 أزرار المشاركة */
+    .share-row {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 8px;
-        margin: 10px 0 18px;
+        gap: 10px;
+        margin: 18px 0 5px;
     }
 
-    .action-btn,
     .share-btn {
         border-radius: 10px;
         border: none;
-        padding: 8px 14px;
+        padding: 10px 15px;
         font-size: 14px;
         font-weight: 700;
         cursor: pointer;
         text-decoration: none;
         color: #fff;
         transition: 0.2s;
+        width: 46%;
     }
 
-    .action-btn.print-btn {
-        background: #374151;
-    }
-    .action-btn.print-btn:hover {
-        background: #111827;
-        transform: scale(1.02);
-    }
+    .share-btn.wa { background: #128C7E; }
+    .share-btn.wa:hover { background: #0f6c61; transform: scale(1.02); }
 
-    .share-btn.wa {
-        background: #128C7E;
-    }
-    .share-btn.wa:hover {
-        background: #0f6c61;
-        transform: scale(1.02);
-    }
-
-    .share-btn.tg {
-        background: #0088cc;
-    }
-    .share-btn.tg:hover {
-        background: #006fa6;
-        transform: scale(1.02);
-    }
+    .share-btn.tg { background: #0088cc; }
+    .share-btn.tg:hover { background: #006fa6; transform: scale(1.02); }
 
     /* العناوين */
     .section-title {
@@ -163,7 +144,6 @@
         white-space: nowrap;
     }
 
-    /* أزرار تحميل مجموعات الملفات */
     .collection-btn {
         display: block;
         width: 93%;
@@ -180,24 +160,14 @@
         backdrop-filter: blur(8px);
     }
 
-    .videos-collection-btn {
-        background: #168949cc;
-    }
-    .videos-collection-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 12px rgba(22,137,73,0.7);
-    }
+    .videos-collection-btn { background: #168949cc; }
+    .videos-collection-btn:hover { transform: scale(1.05); }
 
-    .audios-collection-btn {
-        background: #2e4bb3cc;
-    }
-    .audios-collection-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 12px rgba(46,75,179,0.7);
-    }
+    .audios-collection-btn { background: #2e4bb3cc; }
+    .audios-collection-btn:hover { transform: scale(1.05); }
 
     .copyright {
-        margin-top: 30px;
+        margin-top: 15px;
         font-size: 16px;
         font-weight: 800;
         color: #b58a00;
@@ -216,20 +186,9 @@
 
     <h1>المحتوى المرئي والصوتي للكتاب</h1>
 
-    <!-- صورة الغلاف -->
     <img src="cover.jpg" class="cover" alt="غلاف الكتاب">
 
-    <!-- زر تحميل الكتاب داخل إطار ذهبي فاخر -->
     <a href="#" class="download-btn pdf-main">📥 تحميل الكتاب PDF</a>
-
-    <!-- أزرار: طباعة + مشاركة -->
-    <div class="actions-row">
-        <button class="action-btn print-btn" onclick="window.print()">🖨️ طباعة الصفحة</button>
-    </div>
-    <div class="actions-row">
-        <button class="share-btn wa" onclick="shareWhatsApp()">📲 مشاركة عبر واتساب</button>
-        <button class="share-btn tg" onclick="shareTelegram()">📨 مشاركة عبر تيلغرام</button>
-    </div>
 
     <!-- المحتوى المرئي -->
     <div class="section-title video-title">📘 المحتوى المرئي (الفيديوهات)</div>
@@ -263,7 +222,6 @@
         <div class="item"><span>مشاهدة الدرس (25): ثَمَراتٌ مُتَّصِلةٌ</span><span class="soon-badge">⏳ قريبًا</span></div>
     </div>
 
-    <!-- زر تحميل ملفات الفيديو كاملة -->
     <a href="#" class="collection-btn videos-collection-btn">🎬 تحميل جميع الفيديوهات كملف واحد ⬇️</a>
 
     <!-- المحتوى الصوتي -->
@@ -297,8 +255,13 @@
         <div class="item audio"><span>استماع الدرس (25): ثَمَراتٌ مُتَّصِلةٌ</span><span class="soon-badge">⏳ قريبًا</span></div>
     </div>
 
-    <!-- زر تحميل الصوتيات كاملة -->
     <a href="#" class="collection-btn audios-collection-btn">🎧 تحميل جميع الصوتيات كملف واحد ⬇️</a>
+
+    <!-- 🔽 زري المشاركة تم نقلهما هنا -->
+    <div class="share-row">
+        <button class="share-btn wa" onclick="shareWhatsApp()">📲 واتساب</button>
+        <button class="share-btn tg" onclick="shareTelegram()">📨 تيلغرام</button>
+    </div>
 
     <!-- حقوق النشر -->
     <div class="copyright">

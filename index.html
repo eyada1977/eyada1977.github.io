@@ -5,23 +5,26 @@
     <title>المحتوى المرئي والصوتي للكتاب</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- وسوم المشاركة الاجتماعية -->
+    <!-- وسوم المشاركة الاجتماعية (Open Graph) -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="كتاب دليل أحكام التجويد">
     <meta property="og:locale" content="ar_AR">
+    <meta property="og:url" content="https://altajwid.github.io/">
+    <meta property="og:title" content="كتاب دليل أحكام التجويد">
+    <meta property="og:description" content="كتاب دليل أحكام التجويد – المحتوى المرئي والصوتي للكتاب">
 
-    <meta property="og:title" content="كتاب دليل أحكام التجويد – المحتوى المرئي والصوتي للكتاب">
-    <meta property="og:description" content="تحميل ومشاهدة وسماع المحتوى المرئي والصوتي لكتاب دليل أحكام التجويد.">
-    <meta property="fb:app_id" content="000000000000000">
-
-    <!-- صورة الغلاف (الكتاب) -->
-    <meta property="og:image" content="https://altajwid.github.io/cover-new.jpg.jpg?v=1">
-    <meta property="og:image:secure_url" content="https://altajwid.github.io/cover-new.jpg.jpg?v=1">
+    <!-- صورة الغلاف التي تُستخدم في المعاينة -->
+    <meta property="og:image" content="https://altajwid.github.io/cover.jpg?v=3">
+    <meta property="og:image:secure_url" content="https://altajwid.github.io/cover.jpg?v=3">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="768">
+    <meta property="og:image:height" content="1126">
 
     <!-- بطاقة تويتر -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="كتاب دليل أحكام التجويد – المحتوى المرئي والصوتي للكتاب">
-    <meta name="twitter:description" content="تحميل ومشاهدة وسماع المحتوى المرئي والصوتي لكتاب دليل أحكام التجويد.">
-    <meta name="twitter:image" content="https://altajwid.github.io/cover-new.jpg.jpg?v=1">
+    <meta name="twitter:title" content="كتاب دليل أحكام التجويد">
+    <meta name="twitter:description" content="المحتوى المرئي والصوتي للكتاب">
+    <meta name="twitter:image" content="https://altajwid.github.io/cover.jpg?v=3">
 
     <style>
         body {
@@ -43,6 +46,7 @@
             backdrop-filter: blur(8px);
         }
 
+        /* العنوان الرئيسي */
         h1 {
             font-family: "Amiri", "Cairo", serif;
             color: #0b4d27;
@@ -57,6 +61,7 @@
             margin-bottom: 18px;
         }
 
+        /* صورة غلاف الكتاب داخل الصفحة */
         .cover {
             width: 85%;
             border-radius: 15px;
@@ -64,6 +69,7 @@
             margin-bottom: 25px;
         }
 
+        /* زر PDF */
         .download-main-wrapper {
             display: flex;
             justify-content: center;
@@ -81,8 +87,15 @@
             color: #ffffff;
             background: linear-gradient(135deg, #b47b5d, #8c6b4c);
             box-shadow: 0 0 12px rgba(212,175,55,0.5);
+            transition: 0.25s;
         }
 
+        .download-main-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 18px rgba(212,175,55,0.8);
+        }
+
+        /* عناوين الأقسام */
         .section-title {
             font-size: 20px;
             font-weight: 800;
@@ -118,6 +131,7 @@
             font-weight: bold;
         }
 
+        /* أزرار تحميل جميع الفيديوهات والصوتيات */
         .bulk-download-btn {
             display: block;
             width: 95%;
@@ -128,11 +142,19 @@
             border-radius: 10px;
             color: #fff;
             text-decoration: none;
+            transition: 0.25s;
         }
 
         .bulk-download-btn.video { background: #15803d; }
         .bulk-download-btn.audio { background: #6b8ce9; }
 
+        .bulk-download-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.07);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+        }
+
+        /* حقوق النشر */
         .copyright {
             margin-top: 30px;
             font-size: 16px;
@@ -142,8 +164,10 @@
             padding: 12px;
             border-radius: 10px;
             border: 1px solid #e6d68a;
+            text-align: center;
         }
 
+        /* منطقة المشاركة */
         .share-area { margin-top: 22px; }
 
         .share-title {
@@ -157,7 +181,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* لعدم اختفاء أيقونات على الشاشات الضيقة */
         }
 
         .share-item {
@@ -177,6 +201,13 @@
             justify-content: center;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.16);
+            transition: 0.25s;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            filter: brightness(1.05);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.22);
         }
 
         .share-icon {
@@ -185,11 +216,18 @@
             filter: brightness(0) invert(1);
         }
 
+        .share-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #111827;
+        }
+
         .whatsapp { background: #25D366; }
         .telegram { background: #0088cc; }
         .facebook { background: #1877F2; }
         .twitter { background: #1DA1F2; }
 
+        /* زر العودة للأعلى */
         #backToTop {
             position: fixed;
             bottom: 22px;
@@ -205,8 +243,15 @@
             align-items: center;
             cursor: pointer;
             box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+            transition: 0.3s;
             opacity: 0;
             visibility: hidden;
+            z-index: 999;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-3px);
+            background: #0a401f;
         }
 
         #backToTop.show {
@@ -223,10 +268,10 @@
     <h1>المحتوى المرئي والصوتي للكتاب</h1>
     <div class="subtitle">سيتم تفعيل الروابط لاحقًا بإذن الله.</div>
 
-    <!-- صورة الغلاف (الكتاب) -->
-    <img src="cover-new.jpg.jpg" class="cover" alt="غلاف الكتاب">
+    <!-- صورة الغلاف داخل الصفحة -->
+    <img src="cover.jpg" class="cover" alt="غلاف الكتاب">
 
-    <!-- زر التحميل -->
+    <!-- زر تحميل الكتاب PDF -->
     <div class="download-main-wrapper">
         <a href="#" class="download-main-btn">📥 تحميل الكتاب PDF</a>
     </div>
@@ -312,16 +357,16 @@
     </div>
 
     <div class="share-area">
-        <div class="share-title">شارك الكتاب مع الأحبة</div>
+        <div class="share-title">شارك الكتاب مع الأحبّة</div>
 
         <div class="share-buttons">
 
             <!-- واتساب -->
             <div class="share-item">
                 <a class="share-btn whatsapp"
-                   href="https://wa.me/?text=https://altajwid.github.io%0Aكتاب%20(دليل%20أحكام%20التجويد)"
+                   href="https://wa.me/?text=https://altajwid.github.io%20-%20كتاب%20(دليل%20أحكام%20التجويد)"
                    target="_blank">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" class="share-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" class="share-icon" alt="WhatsApp">
                 </a>
                 <div class="share-label">واتساب</div>
             </div>
@@ -331,7 +376,7 @@
                 <a class="share-btn telegram"
                    href="https://t.me/share/url?url=https://altajwid.github.io&text=كتاب%20(دليل%20أحكام%20التجويد)"
                    target="_blank">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" class="share-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" class="share-icon" alt="Telegram">
                 </a>
                 <div class="share-label">تيلغرام</div>
             </div>
@@ -341,17 +386,17 @@
                 <a class="share-btn facebook"
                    href="https://www.facebook.com/sharer/sharer.php?u=https://altajwid.github.io"
                    target="_blank">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" class="share-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" class="share-icon" alt="Facebook">
                 </a>
                 <div class="share-label">فيسبوك</div>
             </div>
 
-            <!-- تويتر -->
+            <!-- تويتر / X -->
             <div class="share-item">
                 <a class="share-btn twitter"
                    href="https://twitter.com/intent/tweet?url=https://altajwid.github.io&text=كتاب%20(دليل%20أحكام%20التجويد)"
                    target="_blank">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" class="share-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" class="share-icon" alt="Twitter">
                 </a>
                 <div class="share-label">تويتر</div>
             </div>
